@@ -1120,82 +1120,91 @@ background:url('compressed/closing.webp') center/cover no-repeat;
 /* Desigened by section */
 .credit-section{
   text-align:center;
-  padding:20px 10px;
-  font-family:'Cinzel',serif;
-  font-size:12px;
-  letter-spacing:0.25em;
-  color:rgba(255, 207, 73, 0.705);
-  background:var(--deep);
-}
-
-.credit-section a{
-  color:var(--gold-light);
-  text-decoration:none;
+  padding:28px 18px;
+  background:linear-gradient(
+    to bottom,
+    rgba(15,10,5,0.95),
+    rgba(30,20,10,0.98)
+  );
+  border-top:1px solid rgba(201,168,76,0.25);
+  border-bottom:1px solid rgba(201,168,76,0.25);
+  font-family:'Cinzel', serif;
   position:relative;
-  display:inline-block; /* 👈 IMPORTANT FIX */
-  font-size:14px;
-  letter-spacing:0.15em;
-  font-weight:500;
-
-  text-shadow:0 0 8px rgba(201,168,76,0.4);
-
-  transition:all 0.3s ease;
-
-  animation: nameGlow 3s ease-in-out infinite; /* 👈 HERE */
-
- 
+  overflow:hidden;
 }
 
-/* underline animation */
-.credit-section a::after{
+/* subtle glow line */
+.credit-section::before{
   content:'';
   position:absolute;
-  left:0;
-  bottom:-6px;
-
-  width:100%;
-  height:2px; /* 👈 thicker */
-
-  background:rgba(201,168,76,0.9); /* 👈 brighter */
-  transition:all 0.3s ease;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:70%;
+  height:1px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(201,168,76,0.7),
+    transparent
+  );
 }
 
-/* ✨ hover = premium shine */
-.credit-section a:hover{
-  color:#fff;
-
-  text-shadow:
-    0 0 12px rgba(201,168,76,0.8),
-    0 0 20px rgba(201,168,76,0.4);
-
-  transform:translateY(-1px);
+.credit-text{
+  font-size:12px;
+  letter-spacing:0.22em;
+  color:rgba(255, 215, 120, 0.85);
+  margin:0;
+  text-transform:uppercase;
+  line-height:1.8;
 }
 
-.credit-section a:hover::after{
-  width:100%;
-  background:#fff;
+.credit-subtext{
+  margin-top:8px;
+  font-size:12px;
+  letter-spacing:0.18em;
+  color:rgba(255, 218, 116, 0.822);
+  font-style:italic;
 }
 
 .credit-name{
-  display:inline-block; /* needed for transform */
-
-   animation: 
-    softBounce 2.5s ease-in-out infinite,
-    glowPulse 3s ease-in-out infinite;
+  color:var(--gold-light);
+  text-decoration:none;
+  position:relative;
+  display:inline-block;
+  margin-left:4px;
+  font-size:13px;
+  font-weight:600;
+  text-shadow:0 0 12px rgba(201,168,76,0.4);
+  animation:nameGlow 3s ease-in-out infinite;
+  transition:all 0.3s ease;
 }
 
-@keyframes softBounce{
-  0%, 100%{
-    transform:translateY(0);
-  }
-  50%{
-    transform:translateY(-4px); /* very small movement */
-  }
+.credit-name::after{
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:100%;
+  height:1px;
+  background:rgba(201,168,76,0.8);
+}
+
+.credit-name:hover{
+  color:#fff;
+  text-shadow:
+    0 0 14px rgba(201,168,76,0.9),
+    0 0 22px rgba(201,168,76,0.5);
+  transform:translateY(-2px);
 }
 
 @keyframes nameGlow{
-  0%,100%{text-shadow:0 0 6px rgba(201,168,76,0.3);}
-  50%{text-shadow:0 0 14px rgba(201,168,76,0.6);}
+  0%,100%{
+    text-shadow:0 0 6px rgba(201,168,76,0.3);
+  }
+  50%{
+    text-shadow:0 0 16px rgba(201,168,76,0.65);
+  }
 }
 
 </style>
@@ -1673,13 +1682,15 @@ background:url('compressed/closing.webp') center/cover no-repeat;
 
 
 <div class="credit-section">
- Designed with love by <br>
-
- <a href="https://www.linkedin.com/in/unnaati" target="_blank" class="credit-name">
-  Unnati Goel
-</a>
-    
-    
+  <p class="credit-text">
+     Made by 
+    <a href="https://www.linkedin.com/in/unnaati" target="_blank" class="credit-name">
+      Unnati Goel
+    </a>
+  </p>
+  <p class="credit-subtext">
+    With love and best wishes for her Bhaiyya ✨
+  </p>
 </div>
 
 
